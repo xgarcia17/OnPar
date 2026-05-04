@@ -1,41 +1,91 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
+  /* background colors */
+  --bg-primary: #b0c3a3;
+  --bg-secondary: #4b5743;
+  --bg-text: #f5fdef;
+
+  /* text colors */
   --text-primary: #171717;
   --text-secondary: #525252;
+  --text-title: #9f7f03;
+  --text-title-shadow: #504001;
   --text-muted: #737373;
   --text-brand: #7c3aed;
   --text-danger: #dc2626;
 }
 
 .dark {
+  /* background colors */
+  --bg-primary: #122918;
+  --bg-secondary: #0e3b1a;
+  --bg-text: #4b5743;
+
+  /* text colors */
   --text-primary: #ededed;
   --text-secondary: #a3a3a3;
+  --text-title: #efbf04;
+  --text-title-shadow: #9F7F03;
   --text-muted: #737373;
   --text-brand: #c084fc;
   --text-danger: #f87171;
 }
 
 @layer utilities {
+  /* background colors */
+  .bg-primary {
+    background-color: var(--bg-primary);
+  }
+  .bg-secondary {
+    background-color: var(--bg-secondary);
+  }
+  .bg-text {
+    background-color: var(--bg-text);
+  }
+
+  .border-secondary {
+    border-color: var(--bg-secondary);
+  }
+
+  /* text colors */
   .text-primary {
     color: var(--text-primary);
   }
-
   .text-secondary {
     color: var(--text-secondary);
   }
-
+  .text-title {
+    color: var(--text-title);
+  }
   .text-muted {
     color: var(--text-muted);
   }
-
   .text-brand {
     color: var(--text-brand);
   }
-
   .text-danger {
     color: var(--text-danger);
+  }
+
+  .title-shadow {
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--text-title-shadow);
+  }
+  
+
+  /* screen responsiveness */
+  .h1-responsive {
+    @apply text-4xl lg:text-6xl;
+  }
+  .p-responsive {
+    @apply text-base md:text-lg;
+  }
+  .padding-responsive {
+    @apply p-4 md:p-8 lg:p-12;
   }
 }
