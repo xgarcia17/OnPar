@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
+import NavBar from "@/components/navbar";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -34,8 +35,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className="min-h-screen flex flex-col">
+        <ThemeProvider>
+          <NavBar />
+          <main className="flex-1 flex flex-col">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );
