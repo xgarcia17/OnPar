@@ -20,7 +20,7 @@ export default function NavBar() {
         {/* Main Button */}
         <div className="flex items-center gap-2 py-1 rounded-lg bg-transparent hover:scale-110 transition mr-auto ml-[clamp(0.75rem,5vw,4rem)]">
           <Link href="/" aria-label="Home" className="flex items-center gap-3">
-            <span className="text-3xl font-bold text-navbar">OnPar</span>
+            <span className="text-3xl font-bold text-navbar-active">OnPar</span>
           </Link>
         </div>
 
@@ -37,8 +37,8 @@ export default function NavBar() {
                 href={link.href}
                 className={
                   isActive
-                    ? `${MINI_BUTTON_CLASSNAME} text-white font-bold`
-                    : `${MINI_BUTTON_CLASSNAME} text-gray-600`
+                    ? `${MINI_BUTTON_CLASSNAME} text-navbar-active`
+                    : `${MINI_BUTTON_CLASSNAME} text-navbar-inactive`
                 }
               >
                 {link.label}

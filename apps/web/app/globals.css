@@ -75,8 +75,11 @@
   .text-danger {
     color: var(--text-danger);
   }
-  .text-navbar {
+  .text-navbar-active {
     color: #efbf04;
+  }
+  .text-navbar-inactive {
+    color: #856A02;
   }
 
   .title-shadow {
