@@ -10,10 +10,6 @@ const MINI_BUTTON_CLASSNAME =
 const links = [
   { href: "/tournaments", label: "Your Tournaments" },
   { href: "/leaderboard", label: "Leaderboard" },
-  { href: "/test0", label: "Test0" },
-  { href: "/test1", label: "Test1" },
-  { href: "/test2", label: "Test2" },
-  { href: "/test3", label: "Test3" },
 ];
 
 export default function NavBar() {
@@ -31,7 +27,7 @@ export default function NavBar() {
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-[clamp(0.5rem,2vw,1.5rem)] text-sm">
+        <div className="hidden sm:flex items-center gap-[clamp(0.5rem,2vw,1.5rem)] text-sm">
           {links.map((link) => {
             const isActive = pathname.startsWith(link.href);
 
@@ -59,7 +55,7 @@ export default function NavBar() {
           aria-label="Toggle navigation menu"
           aria-expanded={open}
           onClick={() => setOpen((prev) => !prev)}
-          className={`md:hidden text-3xl transition ${
+          className={`sm:hidden text-3xl transition ${
             open ? "text-navbar-inactive" : "text-navbar-active"
           }`}
         >
