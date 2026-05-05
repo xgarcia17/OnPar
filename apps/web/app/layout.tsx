@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className="bg-primary">
+    <html lang="en" suppressHydrationWarning className="bg-primary w-full">
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -35,10 +35,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-screen w-full flex flex-col">
         <ThemeProvider>
           <NavBar />
-          <main className="flex-1 flex flex-col">{children}</main>
+          <main className="flex-1 w-full flex flex-col">{children}</main>
         </ThemeProvider>
       </body>
     </html>

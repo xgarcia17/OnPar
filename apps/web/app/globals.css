@@ -4,6 +4,17 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 :root {
   /* background colors */
   --bg-primary: #b0c3a3;
@@ -79,7 +90,7 @@
     color: #efbf04;
   }
   .text-navbar-inactive {
-    color: #856A02;
+    color: #856a02;
   }
 
   .title-shadow {

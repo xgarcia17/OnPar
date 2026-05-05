@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const MINI_BUTTON_CLASSNAME =
-  "flex-shrink-0 flex items-center gap-2 px-3 py-2 rounded-lg bg-transparent text-gray-700 font-medium hover:scale-110 transition cursor-pointer";
+  "flex-shrink-0 flex items-center gap-2 px-3 py-2 font-medium hover:scale-110 transition cursor-pointer";
 
 const links = [
   { href: "/tournaments", label: "Your Tournaments" },
@@ -19,7 +19,7 @@ export default function NavBar() {
   const pathname = usePathname();
 
   return (
-    <nav className="bg-secondary border-bg-secondary flex-shrink-0">
+    <nav className="w-full bg-secondary border-bg-secondary flex-shrink-0">
       <div className="w-full px-3 md:px-6 py-3 flex flex-wrap md:flex-nowrap items-center gap-4 sm:gap-6 md:gap-8 lg:gap-12">
         {/* Main Button */}
         <Link
@@ -33,7 +33,7 @@ export default function NavBar() {
         </Link>
 
         {/* Navigation Buttons */}
-        <div className="flex gap-6 text-sm ml-auto mr-[clamp(0.75rem,5vw,4rem)] max-w-7xl">
+        <div className="flex text-sm ml-auto mr-[clamp(0.75rem,5vw,4rem)] max-w-7xl gap-[clamp(0.5rem,3vw,1.5rem)]">
           {links.map((link) => {
             const isActive =
               link.href === "/"
