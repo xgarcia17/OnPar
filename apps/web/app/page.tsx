@@ -1,4 +1,4 @@
-export default async function Home() {
+export default async function HomePage() {
   return (
     <div className="padding-responsive flex flex-col items-center">
       <h1 className="text-center h1-responsive font-bold text-title m-12 title-shadow">
