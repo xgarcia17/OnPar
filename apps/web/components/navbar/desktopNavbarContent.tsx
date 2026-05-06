@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function DesktopNavbarContent() {
   const pathname = usePathname();
   return (
-    <div className="hidden sm:flex items-center gap-[clamp(0.5rem,2vw,1.5rem)] text-sm">
+    <div className="sm:flex items-center gap-[clamp(0.5rem,2vw,1.5rem)] text-sm">
       {links.map((link) => {
         const isActive = pathname.startsWith(link.href);
 
