@@ -3,14 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-
-const MINI_BUTTON_CLASSNAME =
-  "flex-shrink-0 flex items-center justify-center gap-2 px-3 py-2 font-medium hover:scale-110 transition cursor-pointer";
-
-const links = [
-  { href: "/tournaments", label: "Your Tournaments" },
-  { href: "/leaderboard", label: "Leaderboard" },
-];
+import DesktopNavbarContent from "./desktopNavbarContent";
+import { MINI_BUTTON_CLASSNAME, links } from "./navbar.constants";
 
 export default function NavBar() {
   const pathname = usePathname();
@@ -27,7 +21,8 @@ export default function NavBar() {
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden sm:flex items-center gap-[clamp(0.5rem,2vw,1.5rem)] text-sm">
+        <DesktopNavbarContent />
+        {/* <div className="hidden sm:flex items-center gap-[clamp(0.5rem,2vw,1.5rem)] text-sm">
           {links.map((link) => {
             const isActive = pathname.startsWith(link.href);
 
@@ -45,9 +40,8 @@ export default function NavBar() {
               </Link>
             );
           })}
-          {/* User Portal Button */}
           <div>User Placeholder</div>
-        </div>
+        </div> */}
 
         {/* Hamburger button */}
         <button
