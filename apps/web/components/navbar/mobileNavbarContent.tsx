@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { MINI_BUTTON_CLASSNAME, links } from "./navbar.constants";
 
 export default function MobileNavbarContent({
@@ -15,6 +15,7 @@ export default function MobileNavbarContent({
   const pathname = usePathname();
   const previousPathname = useRef(pathname);
 
+  // delay closing of pop-up menu until page reload
   useEffect(() => {
     if (previousPathname.current !== pathname) {
       setOpen(false);
