@@ -2,12 +2,25 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MINI_BUTTON_CLASSNAME, links } from "./navbar.constants";
 
-export default function MobileNavbarContent() {
+export default function MobileNavbarContent({
+  open,
+  setOpen,
+}: {
+  open: boolean;
+  setOpen: (val: boolean) => void;
+}) {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  const previousPathname = useRef(pathname);
+
+  useEffect(() => {
+    if (previousPathname.current !== pathname) {
+      setOpen(false);
+      previousPathname.current = pathname;
+    }
+  }, [pathname, setOpen]);
 
   return (
     <>
@@ -15,7 +28,7 @@ export default function MobileNavbarContent() {
         type="button"
         aria-label="Toggle navigation menu"
         aria-expanded={open}
-        onClick={() => setOpen((prev) => !prev)}
+        onClick={() => setOpen(!open)}
         className={`text-3xl hover:scale-110 transition ${
           open ? "text-navbar-inactive" : "text-navbar-active"
         }`}
@@ -32,7 +45,6 @@ export default function MobileNavbarContent() {
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setOpen(false)}
                 className={
                   isActive
                     ? `${MINI_BUTTON_CLASSNAME} text-navbar-active`
