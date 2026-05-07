@@ -16,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="bg-primary w-full">
       <head>
+        {/* run script to prevent flash when CSS applying theme */}
         <script
           dangerouslySetInnerHTML={{
             __html: `

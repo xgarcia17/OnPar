@@ -46,6 +46,9 @@ export default function MobileNavbarContent({
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={() => {
+                  if (isActive) setOpen(false);
+                }}
                 className={
                   isActive
                     ? `${MINI_BUTTON_CLASSNAME} text-navbar-active`
