@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { MINI_BUTTON_CLASSNAME, links } from "./navbar.constants";
-import UserSettingsMenu from "./userSettingsMenu";
+import UserSettingsContent from "./userSettingsContent";
 
 export default function MobileNavbarContent({
   open,
@@ -79,7 +79,7 @@ export default function MobileNavbarContent({
               </button>
             </>
           ) : (
-            <UserSettingsMenu />
+            <UserSettingsContent />
           )}
         </div>
       )}

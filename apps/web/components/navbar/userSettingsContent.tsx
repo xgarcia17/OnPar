@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { MINI_BUTTON_CLASSNAME } from "./navbar.constants";
 
-export default function UserSettingsMenu() {
+export default function UserSettingsContent() {
   return (
     <div className="flex flex-col items-center gap-2 text-sm">
       <h4>User Name</h4>
