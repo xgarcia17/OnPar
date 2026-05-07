@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MINI_BUTTON_CLASSNAME, links } from "./navbar.constants";
+import UserSettingsMenu from "./userSettingsMenu";
 
 export default function MobileNavbarContent({
   open,
@@ -14,6 +15,8 @@ export default function MobileNavbarContent({
 }) {
   const pathname = usePathname();
   const previousPathname = useRef(pathname);
+  const [mobileView, setMobileView] = useState<"links" | "settings">("links");
+  const username = "Jane Doe";
 
   // delay closing of pop-up menu until page reload
   useEffect(() => {
@@ -29,7 +32,12 @@ export default function MobileNavbarContent({
         type="button"
         aria-label="Toggle navigation menu"
         aria-expanded={open}
-        onClick={() => setOpen(!open)}
+        onClick={() => {
+          setOpen(!open);
+          if (open) {
+            setMobileView("links");
+          }
+        }}
         className={`text-3xl hover:scale-110 transition ${
           open ? "text-navbar-inactive" : "text-navbar-active"
         }`}
@@ -39,28 +47,40 @@ export default function MobileNavbarContent({
 
       {open && (
         <div className="absolute left-0 top-full w-full bg-secondary px-[clamp(1rem,5vw,4rem)] pb-4 flex flex-col items-center gap-2 text-sm">
-          {links.map((link) => {
-            const isActive = pathname.startsWith(link.href);
+          {mobileView === "links" ? (
+            <>
+              {links.map((link) => {
+                const isActive = pathname.startsWith(link.href);
 
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => {
-                  if (isActive) setOpen(false);
-                }}
-                className={
-                  isActive
-                    ? `${MINI_BUTTON_CLASSNAME} text-navbar-active`
-                    : `${MINI_BUTTON_CLASSNAME} text-navbar-inactive`
-                }
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => {
+                      if (isActive) setOpen(false);
+                    }}
+                    className={
+                      isActive
+                        ? `${MINI_BUTTON_CLASSNAME} text-navbar-active`
+                        : `${MINI_BUTTON_CLASSNAME} text-navbar-inactive`
+                    }
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+
+              <button
+                type="button"
+                onClick={() => setMobileView("settings")}
+                className={`${MINI_BUTTON_CLASSNAME} text-navbar-inactive`}
               >
-                {link.label}
-              </Link>
-            );
-          })}
-
-          <div>User Placeholder</div>
+                {username}
+              </button>
+            </>
+          ) : (
+            <UserSettingsMenu />
+          )}
         </div>
       )}
     </>
