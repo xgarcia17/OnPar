@@ -3,6 +3,7 @@
 import { MINI_BUTTON_CLASSNAME, links } from "./navbar.constants";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import UserSettingsModal from "./userSettingsModal";
 
 export default function DesktopNavbarContent() {
   const pathname = usePathname();
@@ -25,7 +26,8 @@ export default function DesktopNavbarContent() {
           </Link>
         );
       })}
-      <div>User Placeholder</div>
+      {/* <div>User Placeholder</div> */}
+      <UserSettingsModal />
     </div>
   );
 }
