@@ -27,7 +27,7 @@ body {
   --text-primary: #171717;
   --text-secondary: #525252;
   --text-title: #9f7f03;
-  --text-title-shadow: #504001;
+  --text-title-shadow: #7c6403;
   --text-muted: #737373;
   --text-brand: #7c3aed;
   --text-danger: #dc2626;
@@ -65,6 +65,9 @@ body {
 
   .border-color {
     border-color: var(--border-color);
+  }
+  .navbar-modal-border-color {
+    border-color: var(--text-title)
   }
 
   /* text colors */

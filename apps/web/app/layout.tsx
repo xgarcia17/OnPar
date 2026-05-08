@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
-import NavBar from "@/components/navbar";
+import NavBar from "@/components/navbar/navbar";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -16,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="bg-primary w-full">
       <head>
+        {/* run script to prevent flash when CSS applying theme */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -35,7 +36,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen w-full flex flex-col">
+      <body className="min-h-screen w-full flex flex-col suppressHydrationWarning">
         <ThemeProvider>
           <NavBar />
           <main className="flex-1 w-full flex flex-col">{children}</main>
