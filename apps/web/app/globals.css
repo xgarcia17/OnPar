@@ -66,6 +66,9 @@ body {
   .border-color {
     border-color: var(--border-color);
   }
+  .navbar-modal-border-color {
+    border-color: var(--text-title)
+  }
 
   /* text colors */
   .text-primary {
