@@ -26,7 +26,7 @@ export default function DesktopNavbarContent() {
           </Link>
         );
       })}
-      {/* <div>User Placeholder</div> */}
+
       <UserSettingsModal />
     </div>
   );

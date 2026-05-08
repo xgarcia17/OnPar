@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { MINI_BUTTON_CLASSNAME } from "./navbar.constants";
 
+
 export default function UserSettingsContent() {
+  const username = "Jane Doe";
   return (
     <div className="flex flex-col items-center gap-2 text-sm">
-      <h4>User Name</h4>
+      
+      <h2 className="flex-shrink-0 flex items-center justify-center gap-2 px-3 py-2 font-medium text-lg text-navbar-active">{username}</h2>
 
       <Link
         href="/settings"
