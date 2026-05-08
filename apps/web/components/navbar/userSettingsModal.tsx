@@ -2,7 +2,7 @@
 
 import { MINI_BUTTON_CLASSNAME } from "./navbar.constants";
 import { useState } from "react";
-import { Modal, Box, Typography } from "@mui/material";
+import { Modal, Box } from "@mui/material";
 import UserSettingsContent from "./userSettingsContent";
 
 export default function UserSettingsModal() {
