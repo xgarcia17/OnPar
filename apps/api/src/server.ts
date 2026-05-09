@@ -1,15 +1,8 @@
-import express from "express";
-import cors from "cors";
+import dotenv from "dotenv";
+import app from "./app.js";
 
-const app = express();
+dotenv.config();
 
-app.use(cors());
-app.use(express.json());
-
-app.get("/health", (_req, res) => {
-  res.json({ ok: true, message: "Welcome to OnPar!" });
-});
-
-app.listen(4000, () => {
-  console.log("API running on http://localhost:4000");
+app.listen(process.env.PORT, () => {
+  console.log(`API listening on port ${process.env.PORT}`);
 });

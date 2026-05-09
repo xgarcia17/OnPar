@@ -8,7 +8,7 @@ export default async function HomePage() {
         <p className="text-center text-primary text-lg md:text-xl p-4">
           Welcome to <em>OnPar</em>! <em>OnPar</em>&nbsp;is an application for
           you and your friends to gameify your goal-tracking in a golf-inspired
-          way. Customize your goals and defined what it means for you to be
+          way. Customize your goals and define what it means for you to be
           &quot;on track,&quot; or as we say, &quot;on par!&quot;
         </p>
       </div>
