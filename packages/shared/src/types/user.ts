@@ -1,4 +1,4 @@
-export type UserResponse = {
+export type User = {
   id: number;
   username: string;
   name: string;
