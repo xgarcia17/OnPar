@@ -8,7 +8,6 @@ import { User } from "@onpar/shared";
 
 export default function UserSettingsContent() {
   const userId = 402;
-
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
