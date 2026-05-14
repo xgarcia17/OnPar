@@ -9,7 +9,7 @@
 1. Users can become friends with other users by _user_name_.
 2. Users must approve friend requests.
 
-### Tournaments
+### Tournaments (Opens)
 
 1. Users can create their own tournaments.
 2. Users can be responsible for multiple tournaments at a time.
@@ -29,7 +29,7 @@
 2. Users can name rounds (default: no name).
 3. Each round concludes with a leaderboard and round leader.
 
-### Tasks
+### Tasks (Holes)
 
 1. Users can create tasks for a tournament.
 2. All users in the tournament can adjust and update their own task inputs.
@@ -53,7 +53,6 @@
 
 ### Leaderboards
 
-
 #### Tournament Leaderboards
 
 1. Tournament leaderboards will be updated at the completion of each round.
@@ -65,7 +64,7 @@
 2. Leaderboard will display: _user_, _number of tournaments completed_, _number of badges_, _total points earned_, and _average differential per round_.
 3. Users can sort leaderboard by _user_name_ (alphabetical), _number of badges_, _total points earned_, and _average differential per round_
 
-### Badges
+### Badges (Trophy)
 
 1. Each tournament win earns the user a badge.
 2. Users can display their badges on a badge wall.
