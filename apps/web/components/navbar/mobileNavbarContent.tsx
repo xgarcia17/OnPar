@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { MINI_BUTTON_CLASSNAME, links } from "./navbar.constants";
 import UserSettingsContent from "./userSettingsContent";
+import { User } from "@onpar/shared";
+import { getUserById } from "@/lib/api/users";
 
 export default function MobileNavbarContent({
   open,
@@ -16,7 +18,25 @@ export default function MobileNavbarContent({
   const pathname = usePathname();
   const previousPathname = useRef(pathname);
   const [mobileView, setMobileView] = useState<"links" | "settings">("links");
-  const username = "Jane Doe";
+
+  const userId = 402;
+  const [user, setUser] = useState<User | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function loadUser() {
+      try {
+        const data = await getUserById(userId);
+        setUser(data);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Failed to load user");
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    loadUser();
+  }, []);
 
   // delay closing of pop-up menu until page reload
   useEffect(() => {
@@ -75,7 +95,11 @@ export default function MobileNavbarContent({
                 onClick={() => setMobileView("settings")}
                 className={`${MINI_BUTTON_CLASSNAME} text-navbar-inactive`}
               >
-                {username}
+                {isLoading
+                  ? "Loading..."
+                  : error
+                    ? "User unavailable"
+                    : user?.name}
               </button>
             </>
           ) : (
