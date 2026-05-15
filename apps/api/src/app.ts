@@ -10,6 +10,7 @@ console.log("Allowed CORS origin:", CLIENT_URL);
 app.use(
   cors({
     origin: CLIENT_URL,
+    credentials: true,
   }),
 );
 
