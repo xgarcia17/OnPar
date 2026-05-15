@@ -3,9 +3,11 @@
 ## Features
 
 ### User Account
-1. 
+
+1.
 
 ### User Connections
+
 1. Users can become friends with other users by _user_name_.
 2. Users must approve friend requests.
 
@@ -37,8 +39,7 @@
 
 #### Scored Tasks
 
-1. Users can define the task behavior as long as it has some numeric scoring mechanism.
-2. The task must have some expected score per round (the sum of all expected scores creates par).
+1. The task must have some expected score per round (the sum of all expected scores creates par).
 
 #### Non-Scored Tasks
 
