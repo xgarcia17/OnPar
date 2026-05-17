@@ -9,6 +9,7 @@
      - FirstName (string): user's first name
      - LastName (string): user's last name
      - Email (string): user's unique email
+     - Status (string): user status (ACTIVE, HIDDEN, DEACTIVATED)
      - CreatedAt (date): date the user created their account
 
 <br>
@@ -41,22 +42,24 @@
 
 <br>
 
-4. <strong>TournamentParticipation(</strong><u>Participant</u>, <u>Tournament</u><strong>)</strong>
+4. <strong>TournamentParticipation(</strong><u>ParticipantId</u>, <u>TournamentId</u><strong>)</strong>
    - Primary key: Participant, Tournament
-   - Foreign keys: Participant (Users.Id), Tournament (Tournaments.Id)
+   - Foreign keys: ParticipantId (Users.Id), TournamentId (Tournaments.Id)
    - Fields:
-     - Participant (string): user participating in the tournament
-     - Tournament (string): tournament being participated in
+     - ParticipantId (string): user participating in the tournament
+     - TournamentId (string): tournament being participated in
+     - DateJoined (date): date the participant joined
 
 <br>
 
-5. <strong>Trophies(</strong><u>Tournament</u>, <u>Name</u>, Winner<strong>)</strong>
+5. <strong>Trophies(</strong><u>TournamentId</u>, <u>Name</u>, WinnerId<strong>)</strong>
    - Primary key: Tournament, Name
    - Foreign key: Tournament (Tournaments.Id), Winner (Users.Id)
    - Fields:
      - Tournament (string): tournament where the trophy originates
      - Name (string): name of the trophy (unique to the tournament)
      - Winner (string): user who wins the trophy
+     - AwardDate (date): date winner won
      - Icon: TBD - visual representation of the trophy
 
 <br>
@@ -125,7 +128,7 @@
       - ScoreIncrement (integer): the amount the score should increase per input increment
       - InputIncrement (integer): the increment of input that awards a new score
 
-12. <strong>ContinuousScalerScoringFunctions(</strong><u>Tournament</u>, <u>Name</u><strong>)</strong>
+12. <strong>ContinuousScoringFunctions(</strong><u>Tournament</u>, <u>Name</u><strong>)</strong>
     - Primary key: Tournament, Name
     - Foreign keys: Tournament (Tournaments.Id), Name (Tasks.Name)
     - Fields:
